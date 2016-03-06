@@ -7,6 +7,9 @@ import java.time.LocalDateTime;
  * 11.01.2015.
  */
 public class UserMeal {
+    private static int count = 0;
+    protected final int id = ++count;
+
     protected final LocalDateTime dateTime;
 
     protected final String description;

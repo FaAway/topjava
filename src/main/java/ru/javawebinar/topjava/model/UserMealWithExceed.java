@@ -1,58 +1,62 @@
 package ru.javawebinar.topjava.model;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
 
 /**
  * GKislin
  * 11.01.2015.
  */
 public class UserMealWithExceed {
-    protected final LocalDateTime dateTime;
+    protected final Integer id;
 
-    protected final String description;
+    private final LocalDateTime dateTime;
 
-    protected final int calories;
+    private final String description;
 
-    protected final boolean exceed;
+    private final int calories;
+
+    private final boolean exceed;
 
     public UserMealWithExceed(LocalDateTime dateTime, String description, int calories, boolean exceed) {
+        this(null, dateTime, description, calories, exceed);
+    }
+
+    public UserMealWithExceed(Integer id, LocalDateTime dateTime, String description, int calories, boolean exceed) {
+        this.id = id;
         this.dateTime = dateTime;
         this.description = description;
         this.calories = calories;
         this.exceed = exceed;
     }
 
-    public UserMealWithExceed(UserMeal meal, boolean exceed) {
-        this.dateTime = meal.dateTime;
-        this.description = meal.description;
-        this.calories = meal.calories;
-        this.exceed = exceed;
+    public Integer getId() {
+        return id;
+    }
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getCalories() {
+        return calories;
+    }
+
+    public boolean isExceed() {
+        return exceed;
     }
 
     @Override
     public String toString() {
         return "UserMealWithExceed{" +
-                "dateTime=" + dateTime +
+                "id=" + id +
+                ", dateTime=" + dateTime +
                 ", description='" + description + '\'' +
                 ", calories=" + calories +
                 ", exceed=" + exceed +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        UserMealWithExceed that = (UserMealWithExceed) o;
-        return calories == that.calories &&
-                exceed == that.exceed &&
-                Objects.equals(dateTime, that.dateTime) &&
-                Objects.equals(description, that.description);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(dateTime, description, calories, exceed);
     }
 }

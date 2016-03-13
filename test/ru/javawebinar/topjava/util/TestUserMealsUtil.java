@@ -37,17 +37,17 @@ public class TestUserMealsUtil {
     @Test
     public void testFilter() {
         List<UserMealWithExceed> result = Arrays.asList(
-                new UserMealWithExceed(LocalDateTime.of(2015, Month.MAY, 30,10,0), "Завтрак", 500, false),
-                new UserMealWithExceed(LocalDateTime.of(2015, Month.MAY, 31,10,0), "Завтрак", 1000, true)
+                new UserMealWithExceed(1, LocalDateTime.of(2015, Month.MAY, 30,10,0), "Завтрак", 500, false),
+                new UserMealWithExceed(4, LocalDateTime.of(2015, Month.MAY, 31,10,0), "Завтрак", 1000, true)
         );
-        List<UserMealWithExceed> list = UserMealsUtil.getFilteredMealsWithExceeded(mealList, LocalTime.of(7, 0), LocalTime.of(12,0), 2000);
+        List<UserMealWithExceed> list = UserMealsUtil.getFilteredWithExceeded(mealList, LocalTime.of(7, 0), LocalTime.of(12,0), 2000);
         assertThat(list, is(result));
     }
 
     @Test
     public void compareCycleFilterAndLambdaFilter() {
-        List<UserMealWithExceed> resultLambda = UserMealsUtil.getFilteredMealsWithExceeded(mealList, LocalTime.of(7, 0), LocalTime.of(12,0), 2000);
-        List<UserMealWithExceed> resultCycle = UserMealsUtil.getFilteredMealsWithExceededByCycle(mealList, LocalTime.of(7, 0), LocalTime.of(12,0), 2000);
+        List<UserMealWithExceed> resultLambda = UserMealsUtil.getFilteredWithExceeded(mealList, LocalTime.of(7, 0), LocalTime.of(12,0), 2000);
+        List<UserMealWithExceed> resultCycle = UserMealsUtil.getFilteredWithExceededByCycle(mealList, LocalTime.of(7, 0), LocalTime.of(12,0), 2000);
 
         assertThat(resultCycle, is(resultLambda));
     }

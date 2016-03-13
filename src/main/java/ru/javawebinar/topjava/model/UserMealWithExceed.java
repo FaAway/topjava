@@ -9,6 +9,7 @@ import java.util.Objects;
  * 11.01.2015.
  */
 public class UserMealWithExceed {
+    protected Integer id;
 
     protected final LocalDateTime dateTime;
 
@@ -17,6 +18,10 @@ public class UserMealWithExceed {
     protected final int calories;
 
     protected final boolean exceed;
+
+    public Integer getId() {
+        return id;
+    }
 
     public LocalDateTime getDateTime() {
         return dateTime;
@@ -39,6 +44,7 @@ public class UserMealWithExceed {
     }
 
     public UserMealWithExceed(int id, LocalDateTime dateTime, String description, int calories, boolean exceed) {
+        this.id = id;
         this.dateTime = dateTime;
         this.description = description;
         this.calories = calories;
@@ -46,7 +52,7 @@ public class UserMealWithExceed {
     }
 
     public UserMealWithExceed(UserMeal meal, boolean exceed) {
-
+        this.id = meal.id;
         this.dateTime = meal.dateTime;
         this.description = meal.description;
         this.calories = meal.calories;

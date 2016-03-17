@@ -4,7 +4,7 @@
     <title>User list</title>
 </head>
 <body>
-<h2><a href="index.html">Home</a></h2>
+<h2><a href="startpage">Home</a></h2>
 <h3>User list</h3>
 <h2>User list 333</h2>
 </body>

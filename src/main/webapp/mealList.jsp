@@ -14,11 +14,31 @@
             color: red;
         }
     </style>
+    <link rel="stylesheet" type="text/css" href="style.css" media="all" />
 </head>
 <body>
 <section>
-    <h2><a href="index.html">Home</a></h2>
+    <h2><a href="startpage">Home</a></h2>
     <h3>Meal list</h3>
+    <%-- Filter by Date & Time --%>
+    <form method="get" action="meals">
+        <input type="hidden" name="action" value="filter">
+        <div class="form-group">
+            <div class="control-label">From Date:</div>
+            <div class="col-sm-2"><input type="date" value="<%= request.getParameter("fromDate") %>" name="fromDate"></div>
+            <div class="control-label">To Date:</div>
+            <div class="col-sm-2"><input type="date" value="<%= request.getParameter("toDate") %>" name="toDate"></div>
+        </div>
+        <div class="form-group">
+            <div class="control-label">From Time:</div>
+            <div class="col-sm-2"><input type="time" value="<%= request.getParameter("fromTime") %>" name="fromTime"></div>
+            <div class="control-label">From Time:</div>
+            <div class="col-sm-2"><input type="time" value="<%= request.getParameter("toTime") %>" name="toTime"></div>
+        </div>
+        <button type="submit">Filter</button>
+    </form>
+    <%-- --------------------- --%>
+
     <a href="meals?action=create">Add Meal</a>
     <hr>
     <table border="1" cellpadding="8" cellspacing="0">
@@ -32,7 +52,7 @@
         </tr>
         </thead>
         <c:forEach items="${mealList}" var="meal">
-            <jsp:useBean id="meal" scope="page" type="ru.javawebinar.topjava.model.UserMealWithExceed"/>
+            <jsp:useBean id="meal" scope="page" type="ru.javawebinar.topjava.to.UserMealWithExceed"/>
             <tr class="${meal.exceed ? 'exceeded' : 'normal'}">
                 <td>
                         ${meal.dateTime.toLocalDate()} ${meal.dateTime.toLocalTime()}

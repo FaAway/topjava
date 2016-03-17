@@ -1,0 +1,13 @@
+.form-group {
+    margin:15px;
+}
+.control-label {
+    padding-top: 7px;
+    margin-bottom: 0;
+    text-align: right;
+    display: inline-block;
+}
+.col-sm-2 {
+    width: 16.66666667%;
+    display: inline-block;
+}

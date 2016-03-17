@@ -5,6 +5,20 @@
 
     <display-name>Topjava</display-name>
 
+    <welcome-file-list>
+        <welcome-file>startpage</welcome-file>
+    </welcome-file-list>
+
+    <servlet>
+        <servlet-name>startPageServlet</servlet-name>
+        <servlet-class>ru.javawebinar.topjava.web.StartPageServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>startPageServlet</servlet-name>
+        <url-pattern>/startpage</url-pattern>
+    </servlet-mapping>
+
     <servlet>
         <servlet-name>userServlet</servlet-name>
         <servlet-class>ru.javawebinar.topjava.web.UserServlet</servlet-class>

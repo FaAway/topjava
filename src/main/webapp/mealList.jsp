@@ -21,7 +21,7 @@
     <h2><a href="startpage">Home</a></h2>
     <h3>Meal list</h3>
     <%-- Filter by Date & Time --%>
-    <form method="get" action="meals">
+    <form method="get" action="meals?action=filter">
         <input type="hidden" name="action" value="filter">
         <div class="form-group">
             <div class="control-label">From Date:</div>

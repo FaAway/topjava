@@ -6,7 +6,7 @@ import ru.javawebinar.topjava.SpringContext;
 import ru.javawebinar.topjava.model.Role;
 import ru.javawebinar.topjava.model.User;
 import ru.javawebinar.topjava.web.user.AdminRestController;
-import ru.javawebinar.topjava.web.user.LoggedUser;
+import ru.javawebinar.topjava.LoggedUser;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -35,7 +35,7 @@ public class StartPageServlet extends HttpServlet {
         String id = req.getParameter("userId");
         int userId = Integer.parseInt(id);
         if (adminUserController.get(userId) != null) {
-            LoggedUser.set(userId);
+            LoggedUser.setId(userId);
             resp.sendRedirect("startpage");
         }
     }

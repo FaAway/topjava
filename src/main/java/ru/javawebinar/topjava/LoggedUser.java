@@ -1,6 +1,5 @@
-package ru.javawebinar.topjava.web.user;
+package ru.javawebinar.topjava;
 
-import org.springframework.stereotype.Component;
 import ru.javawebinar.topjava.util.UserMealsUtil;
 
 /**
@@ -8,7 +7,6 @@ import ru.javawebinar.topjava.util.UserMealsUtil;
  * 06.03.2015.
  */
 
-@Component
 public class LoggedUser {
     private static int id = 1;
 
@@ -16,7 +14,7 @@ public class LoggedUser {
         return id;
     }
 
-    public static void set(int id) {
+    public static void setId(int id) {
         LoggedUser.id = id;
     }
 

@@ -2,8 +2,8 @@ package ru.javawebinar.topjava.repository;
 
 import ru.javawebinar.topjava.model.UserMeal;
 
-import java.time.LocalDate;
-import java.util.List;
+import java.time.LocalDateTime;
+import java.util.Collection;
 
 /**
  * GKislin
@@ -17,7 +17,8 @@ public interface UserMealRepository {
 
     UserMeal get(int userId, int id);
 
-    List<UserMeal> getAll(int userId);
+    Collection<UserMeal> getBetween(int userId, LocalDateTime fromDate, LocalDateTime toDate);
 
-    List<UserMeal> getAllBetweenDates(int userId, LocalDate fromDate, LocalDate toDate);
+    Collection<UserMeal> getAll(int userId);
+
 }

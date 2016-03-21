@@ -27,7 +27,7 @@ public class SpringMain {
 
             System.out.println(userMealRestController.get(1));
             userMealRestController.delete(1);
-            userMealRestController.save(new UserMeal(LocalDateTime.now(), "моцарелла", 500));
+            userMealRestController.create(new UserMeal(LocalDateTime.now(), "моцарелла", 500));
             System.out.println(userMealRestController.getAll());
         }
 

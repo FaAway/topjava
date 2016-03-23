@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import ru.javawebinar.topjava.model.User;
 import ru.javawebinar.topjava.repository.UserRepository;
 
+import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 import java.util.List;
 
@@ -30,10 +31,17 @@ public class JdbcUserRepositoryImpl implements UserRepository {
     @Autowired
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
+    @Autowired
+    private DataSource dataSource;
+
     private SimpleJdbcInsert insertUser;
 
-    @Autowired
-    public JdbcUserRepositoryImpl(DataSource dataSource) {
+    public JdbcUserRepositoryImpl() {
+
+    }
+
+    @PostConstruct
+    public void postConstruct() {
         this.insertUser = new SimpleJdbcInsert(dataSource)
                 .withTableName("USERS")
                 .usingGeneratedKeyColumns("id");

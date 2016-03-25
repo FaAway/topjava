@@ -90,6 +90,6 @@ public class JdbcUserMealRepositoryImpl implements UserMealRepository {
     public List<UserMeal> getBetween(LocalDateTime startDate, LocalDateTime endDate, int userId) {
         Objects.requireNonNull(startDate);
         Objects.requireNonNull(endDate);
-        return jdbcTemplate.query("SELECT * FROM meals WHERE date_time BETWEEN ? AND ? AND user_id=?) ORDER BY date_time DESC ", ROW_MAPPER, Timestamp.valueOf(startDate), Timestamp.valueOf(endDate), userId);
+        return jdbcTemplate.query("SELECT * FROM meals WHERE date_time BETWEEN ? AND ? AND user_id=? ORDER BY date_time DESC ", ROW_MAPPER, startDate, endDate, userId);
     }
 }

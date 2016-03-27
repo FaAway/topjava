@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
  * @param <R> : testEntity, converter result for compare
  */
 public class ModelMatcher<T, R> {
-    protected Function<T, R> entityConverter;
+    private Function<T, R> entityConverter;
 
     public ModelMatcher(Function<T, R> entityConverter) {
         this.entityConverter = entityConverter;
@@ -28,7 +28,7 @@ public class ModelMatcher<T, R> {
         Assert.assertEquals(map(expected, entityConverter), map(actual, entityConverter));
     }
 
-    public static <S, T> Collection<T> map(Collection<S> collection, Function<S, T> converter) {
+    private static <S, T> Collection<T> map(Collection<S> collection, Function<S, T> converter) {
         return collection.stream().map(converter).collect(Collectors.toList());
     }
 }

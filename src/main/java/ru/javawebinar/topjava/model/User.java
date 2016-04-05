@@ -35,7 +35,7 @@ public class User extends NamedEntity {
     protected String email;
 
     @Column(name = "password", nullable = false)
-    @NotEmpty
+    @NotEmpty(message = "{org.hibernate.validator.constraints.NotEmpty.message}")
     @Length(min = 5)
     protected String password;
 

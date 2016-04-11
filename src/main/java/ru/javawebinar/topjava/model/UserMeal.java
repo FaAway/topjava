@@ -43,6 +43,7 @@ public class UserMeal extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
+    @org.springframework.data.annotation.Id
     private User user;
 
     public UserMeal() {

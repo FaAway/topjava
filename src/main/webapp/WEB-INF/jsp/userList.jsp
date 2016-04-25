@@ -36,6 +36,5 @@
     </table>
 </section>
 <jsp:include page="fragments/footer.jsp"/>
-<h2>User list 333</h2>
 </body>
 </html>

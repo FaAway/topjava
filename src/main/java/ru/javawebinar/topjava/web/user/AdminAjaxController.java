@@ -24,6 +24,7 @@ public class AdminAjaxController extends AbstractUserController {
         return super.getAll();
     }
 
+    @Override
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public User get(@PathVariable("id") int id) {
         return super.get(id);

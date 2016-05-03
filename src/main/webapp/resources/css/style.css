@@ -10,6 +10,14 @@
     padding-bottom: 15px;
 }
 
+#mealsDatatable {
+    color: green;
+}
+
+#mealsDatatable th {
+    color: black;
+}
+
 .error, .message {
     padding: 10px;
     margin-bottom: 20px;

@@ -52,12 +52,20 @@ $(function () {
                 0,
                 "desc"
             ]
-        ]
+        ],
+        "initComplete": makeEditable
     });
 
     $('#filter').submit(function () {
         updateTable();
         return false;
     });
-    makeEditable();
+
+    $('#startDate').datetimepicker({
+        timepicker: false,
+        format:'Y.m.d'
+    });
+    $('#endDate').datetimepicker({
+        format:'Y.m.d'
+    });
 });

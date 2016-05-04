@@ -3,8 +3,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="func" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<fmt:setBundle basename="messages.app"/>
-
 <html>
 <jsp:include page="fragments/headTag.jsp"/>
 <link rel="stylesheet" href="webjars/datatables/1.10.11/css/jquery.dataTables.min.css">

@@ -80,7 +80,6 @@
         </div>
     </div>
 </div>
-</section>
 <jsp:include page="fragments/footer.jsp"/>
 
 <div class="modal fade" id="editRow">
@@ -144,9 +143,7 @@
             type: "POST",
             url: ajaxUrl + 'filter',
             data: $('#filter').serialize(),
-            success: function (data) {
-                updateTableByData(data);
-            }
+            success: updateTableByData
         });
         return false;
     }

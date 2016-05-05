@@ -97,6 +97,12 @@ function failNoty(event, jqXHR, options, jsExc) {
     });
 }
 
+
+function renderDateTime(data, type, row) {
+    /*return data.replace('T', ' ');*/
+    return data;
+}
+
 function renderEditBtn(data, type, row) {
     if (type == 'display') {
         return '<a class="btn btn-xs btn-primary" onclick="updateRow(' + row.id + ');">Edit</a>';

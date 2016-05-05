@@ -1,8 +1,13 @@
 package ru.javawebinar.topjava.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.DateTimeFormat;
+import ru.javawebinar.topjava.util.TimeUtil;
+import ru.javawebinar.topjava.util.converter.DateTimeDeserializer;
+import ru.javawebinar.topjava.util.converter.DateTimeSerializer;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -33,7 +38,9 @@ public class UserMeal extends BaseEntity {
 
     @Column(name = "date_time", nullable = false)
     @NotNull
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    @DateTimeFormat(pattern = TimeUtil.DATE_TIME_PATTERN) //for spring deserialization
+    @JsonSerialize(using = DateTimeSerializer.class)
+    @JsonDeserialize(using = DateTimeDeserializer.class)
     private LocalDateTime dateTime;
 
     @Column(name = "description", nullable = false)

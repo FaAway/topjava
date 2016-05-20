@@ -21,7 +21,6 @@ import static ru.javawebinar.topjava.MealTestData.*;
 import static ru.javawebinar.topjava.MealTestData.MATCHER;
 import static ru.javawebinar.topjava.TestUtil.userHttpBasic;
 import static ru.javawebinar.topjava.UserTestData.*;
-import static ru.javawebinar.topjava.model.BaseEntity.START_SEQ;
 
 public class UserMealRestControllerTest extends AbstractControllerTest {
 
@@ -66,7 +65,7 @@ public class UserMealRestControllerTest extends AbstractControllerTest {
         mockMvc.perform(delete(REST_URL + MEAL1_ID)
                 .with(userHttpBasic(USER)))
                 .andExpect(status().isOk());
-        MATCHER.assertCollectionEquals(Arrays.asList(MEAL6, MEAL5, MEAL4, MEAL3, MEAL2), service.getAll(START_SEQ));
+        MATCHER.assertCollectionEquals(Arrays.asList(MEAL6, MEAL5, MEAL4, MEAL3, MEAL2), service.getAll(USER_ID));
     }
 
     @Test
@@ -78,7 +77,7 @@ public class UserMealRestControllerTest extends AbstractControllerTest {
                 .with(userHttpBasic(USER)))
                 .andExpect(status().isOk());
 
-        assertEquals(updated, service.get(MEAL1_ID, START_SEQ));
+        assertEquals(updated, service.get(MEAL1_ID, USER_ID));
     }
 
     @Test

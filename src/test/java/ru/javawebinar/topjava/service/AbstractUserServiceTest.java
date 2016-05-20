@@ -30,7 +30,7 @@ abstract public class AbstractUserServiceTest extends AbstractServiceTest {
         TestUser tu = new TestUser(null, "New", "new@gmail.com", "newPass", 1555, false, Collections.singleton(Role.ROLE_USER));
         User created = service.save(tu.asUser());
         tu.setId(created.getId());
-        MATCHER.assertCollectionEquals(Arrays.asList(ADMIN, tu, USER), service.getAll());
+        MATCHER.assertCollectionEquals(Arrays.asList(ADMIN, tu, TEST_USER, USER), service.getAll());
     }
 
     @Test(expected = DataAccessException.class)
@@ -40,8 +40,8 @@ abstract public class AbstractUserServiceTest extends AbstractServiceTest {
 
     @Test
     public void testDelete() throws Exception {
-        service.delete(USER_ID);
-        MATCHER.assertCollectionEquals(Collections.singletonList(ADMIN), service.getAll());
+        service.delete(TEST_USER_ID);
+        MATCHER.assertCollectionEquals(Arrays.asList(ADMIN, USER), service.getAll());
     }
 
     @Test(expected = NotFoundException.class)
@@ -69,16 +69,16 @@ abstract public class AbstractUserServiceTest extends AbstractServiceTest {
     @Test
     public void testGetAll() throws Exception {
         Collection<User> all = service.getAll();
-        MATCHER.assertCollectionEquals(Arrays.asList(ADMIN, USER), all);
+        MATCHER.assertCollectionEquals(Arrays.asList(ADMIN, TEST_USER, USER), all);
     }
 
     @Test
     public void testUpdate() throws Exception {
-        TestUser updated = new TestUser(USER);
+        TestUser updated = new TestUser(TEST_USER);
         updated.setName("UpdatedName");
         updated.setCaloriesPerDay(330);
         updated.setRoles(Arrays.asList(Role.ROLE_ADMIN, Role.ROLE_USER));
         service.update(updated.asUser());
-        MATCHER.assertEquals(updated, service.get(USER_ID));
+        MATCHER.assertEquals(updated, service.get(TEST_USER_ID));
     }
 }

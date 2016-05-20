@@ -9,7 +9,7 @@ import ru.javawebinar.topjava.util.UserUtil;
 import ru.javawebinar.topjava.web.AbstractControllerTest;
 import ru.javawebinar.topjava.web.json.JsonUtil;
 
-import java.util.Collections;
+import java.util.Arrays;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -38,9 +38,9 @@ public class ProfileRestControllerTest extends AbstractControllerTest {
     @Test
     public void testDelete() throws Exception {
         mockMvc.perform(delete(REST_URL)
-                .with(TestUtil.userHttpBasic(USER)))
+                .with(TestUtil.userHttpBasic(TEST_USER)))
                 .andExpect(status().isOk());
-        MATCHER.assertCollectionEquals(Collections.singletonList(ADMIN), userService.getAll());
+        MATCHER.assertCollectionEquals(Arrays.asList(ADMIN, USER), userService.getAll());
     }
 
     @Test
@@ -48,11 +48,11 @@ public class ProfileRestControllerTest extends AbstractControllerTest {
         UserTo updatedTo = new UserTo(0, "newName", "newemail@ya.ru", "newPassword", 1500);
 
         mockMvc.perform(put(REST_URL).contentType(MediaType.APPLICATION_JSON)
-                .with(TestUtil.userHttpBasic(USER))
+                .with(TestUtil.userHttpBasic(TEST_USER))
                 .content(JsonUtil.writeValue(updatedTo)))
                 .andDo(print())
                 .andExpect(status().isOk());
 
-        MATCHER.assertEquals(UserUtil.updateFromTo(new User(USER), updatedTo), new User(userService.getByEmail("newemail@ya.ru")));
+        MATCHER.assertEquals(UserUtil.updateFromTo(new User(TEST_USER), updatedTo), new User(userService.getByEmail("newemail@ya.ru")));
     }
 }

@@ -17,8 +17,8 @@ import ru.javawebinar.topjava.service.UserService;
 import javax.annotation.PostConstruct;
 
 import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
+import static ru.javawebinar.topjava.Profiles.ACTIVE_DB;
 import static ru.javawebinar.topjava.Profiles.DATAJPA;
-import static ru.javawebinar.topjava.Profiles.POSTGRES;
 
 /**
  * User: gkislin
@@ -32,7 +32,7 @@ import static ru.javawebinar.topjava.Profiles.POSTGRES;
 @WebAppConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
-@ActiveProfiles({POSTGRES, DATAJPA})
+@ActiveProfiles({ACTIVE_DB, DATAJPA})
 abstract public class AbstractControllerTest {
 
     private static final CharacterEncodingFilter CHARACTER_ENCODING_FILTER = new CharacterEncodingFilter();

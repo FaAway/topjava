@@ -21,7 +21,7 @@ import javax.validation.ValidationException;
  */
 @ControllerAdvice(annotations = RestController.class)
 public class ExceptionInfoHandler {
-    Logger LOG = LoggerFactory.getLogger(ExceptionInfoHandler.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ExceptionInfoHandler.class);
 
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(NotFoundException.class)

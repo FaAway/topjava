@@ -1,7 +1,7 @@
 Java Enterprise Online Project 
 ===============================
 
-[![Codacy Badge](https://api.codacy.com/project/badge/grade/0aa43bd345364fab8d455f04e367fe0c)](https://www.codacy.com/app/javawebinar/topjava06)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/222d13c976104574b338501c5671e4ce)](https://www.codacy.com/app/mihabox/topjava?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=FaAway/topjava&amp;utm_campaign=Badge_Grade)
 
 
 Наиболее востребованные технологии /инструменты / фреймворки Java Enterprise:
